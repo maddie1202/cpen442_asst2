@@ -1,0 +1,26 @@
+from collections import Counter
+import sys
+
+text = "FEPVPRBBEGBFEPJGFMNWQDTNVVUNAAGGDMEGMOHFBZPTHDBNMKPGABEGBFEPJGFJGRLQDTEGDMQDEGDMJQBEMQDGEUNAAGGDMFGSQDTBNEPKYPKSPGKDPFBRSUNAAGDNJUNAAGMQDGEUNAAGBPRRAPBEPBKHBEMQMSNHPYPKPGBGZGBJEPDFHMMPDRSUNAAGBEHAXBEHAXMNJDFEPUGAPHXNDGEPGXNVFBQULFGDMMKSRPGYPFUNAAGGDMBEPVGRRJGFNYPKMNBGRQUPJGFDNBGZQBEHKBUNAAGGDMFEPOHAXPMHXNDBNEPKVPPBQDGANAPDBFEPRNNLPMHXUNAAGZHBQBJGFGRRMGKLNYPKEPGMZPVNKPEPKJGFGDNBEPKRNDTXGFFGTPUNAAGGDMBEPJEQBPKGZZQBJGFFBQRRQDFQTEBUNAAGEHKKSQDTMNJDQB"
+
+text_no_commas_list = text.split("UNAAG")
+text = ""
+
+for s in text_no_commas_list:
+    text += s
+
+substrings = []
+counter = Counter()
+length = int(sys.argv[1])
+
+for i in range(0, len(text) - length):
+    substring = text[i]
+    for j in range(1, length):
+        substring += text[i + j]
+    substrings.append(substring)
+    counter[substring] += 1
+
+# print(substrings)
+print(counter)
+
+    
